@@ -1,0 +1,15 @@
+@model List<string>
+@{
+    ViewData["Title"] = "GetCategory";
+}
+
+
+<h1>Kategoriler</h1>
+<ul>
+    @foreach (var category in Model)
+    {
+        <li>
+            <a href="/Home/ProductsByCategory?category=@category">@category</a>
+        </li>
+    }
+</ul>

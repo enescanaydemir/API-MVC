@@ -1,0 +1,18 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Ürünler</h1>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    @foreach (var product in Model)
+    {
+        <div style="border: 1px solid #ddd; padding: 10px; text-align: center; border-radius: 5px;">
+            <img src="@product.Image" alt="@product.Title" style="width: 100%; height: auto; max-width: 200px;" />
+            <h3>@product.Title</h3>
+            <p>@product.Description</p>
+            <p><strong>Price:</strong> @product.Price</p>
+            <a href="/Home/Details/@product.Id" style="color: blue; text-decoration: underline;">Details</a>
+        </div>
+    }
+</div>

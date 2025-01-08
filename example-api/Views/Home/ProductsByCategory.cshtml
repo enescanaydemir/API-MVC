@@ -1,0 +1,27 @@
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "ProductsByCategory";
+}
+
+
+<h1>Products - Products by Category</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="=card">
+                    <img src="@product.Image" alt="@product.Title class=" card-img-top"
+                        style=" max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Title</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p><strong>Fiyat:</strong> @($"{product.Price:C2}")</p>
+                        <p><strong>Kategori:</strong> @product.Category</p>
+                        <a href="/Home/Details/@product.Id" class="btn btn-primary">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
